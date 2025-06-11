@@ -2,7 +2,7 @@
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root'); // Usuario por defecto de XAMPP
 define('DB_PASSWORD', '');     // Contraseña por defecto de XAMPP (vacía)
-define('DB_NAME', 'recetapp');
+define('DB_NAME', 'morning-bush-33856598');
 
 /* Intentar conectar a la base de datos MySQL */
 $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
