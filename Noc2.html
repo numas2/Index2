@@ -11,14 +11,13 @@
 <body>
     <header class="main-header">
         <div class="logo">
-            <img src="recetapp-logo.png" alt="RecetApp Logo">
-            <span>RecetApp</span>
+            <p>Recet<span class="titu2color">App</span></p>
         </div>
         <nav class="main-nav">
             <ul>
                 <li><a href="#" id="navRecetas"><i class="fas fa-book"></i> Recetas</a></li>
                 <li><a href="#" id="navFavoritos"><i class="fas fa-heart"></i> Favoritos</a></li>
-                <li><a href="#" id="navNuevaReceta"><i class="fas fa-plus-circle"></i> Nueva Receta</a></li>
+                <li><a href="CrearReceta.html" id="navNuevaReceta"><i class="fas fa-plus-circle"></i> Nueva Receta</a></li>
                 <li><a href="#" id="navSustituciones"><i class="fas fa-exchange-alt"></i> Sustituciones</a></li>
             </ul>
         </nav>
@@ -39,10 +38,11 @@
 
         <div class="filter-section">
             <div class="filter-dropdown-container"> <!-- Contenedor para el botón y el menú -->
-                    <button class="filter-dropdown" id="categoryFilterBtn">
+                    <button class="filter-dropdown" id="categoryFilterBtn"><br>
                         <i class="fas fa-bars"></i> <span id="categoryFilterBtnText">Todas las categorías</span> <i class="fas fa-chevron-down"></i>
                     </button>
                     <ul class="category-dropdown-menu" id="categoryDropdownMenu" style="display: none;">
+                        
                         <!-- Las categorías se cargarán aquí por JavaScript -->
                     </ul>
                 </div>
