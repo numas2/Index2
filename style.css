@@ -116,7 +116,7 @@ font-weight: bold;
 
 /* Boton registro */
 .btn-register {
-    width: 100%;
+    
     padding: 15px;
     background-color: #FFC107; /* A bright yellow/orange for the button */
     color: white;
@@ -127,6 +127,10 @@ font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 15px; /* Space above the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 305px;
 }
 
 .btn-register:hover {
@@ -145,13 +149,16 @@ width: 100%;
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px; /* Space above the button */
+    margin-top: 15px; 
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 305px;
 }
 
 .btn-inicio:hover {
-    background-color: #FFA000; /* Slightly darker orange on hover */
+    background-color: #FFA000; 
 }
-
 
 /* Login Link */
 .login-link {
