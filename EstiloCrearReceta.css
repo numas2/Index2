@@ -1,0 +1,137 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5DC; /* Crema claro, consistente con Noc2.css */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio para formularios largos */
+    min-height: 100vh;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.form-container {
+    background-color: #F5F5DC; /* Crema más claro, consistente con Noc2.css */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid #E8C44B; /* Borde amarillo principal */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group textarea {
+    width: 100%; /* Ocupa todo el ancho disponible del contenedor padre */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box; /* Importante para que padding no afecte el width total */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="url"]:focus,
+.form-group textarea:focus {
+    border-color: #E8C44B;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(232, 196, 75, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.instruccion-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.instruccion-item input[type="text"] {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+button[type="submit"],
+#addInstruccionBtn,
+.remove-step-btn {
+    background-color: #E8C44B; /* Amarillo principal */
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+#addInstruccionBtn:hover {
+    background-color: #FDCF6E; /* Amarillo más claro al pasar el mouse */
+}
+
+.remove-step-btn {
+    background-color: #e74c3c; /* Rojo para el botón de eliminar */
+    color: white;
+    padding: 7px 12px;
+    font-size: 13px;
+}
+
+.remove-step-btn:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el mouse */
+}
+
+#addInstruccionBtn {
+    margin-top: 5px; /* Pequeño espacio arriba si hay varios items */
+    display: inline-block;
+}
+
+.form-actions {
+    text-align: right; /* Alinea el botón de crear a la derecha */
+    margin-top: 30px;
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+link {
+color: #FFC107; /* color pa resaltar el link */
+}
+
+.regresar-link {
+    color: #FFC107; /* color pa resaltar el link */
+    text-decoration: none;
+    font-weight: 700;
+}

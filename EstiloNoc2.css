@@ -1,0 +1,453 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5DC; /* Light yellow/cream background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px; /* Adjust as needed for overall page width */
+    margin: 20px auto;
+    padding: 0 20px;
+    flex-grow: 1; /* Allows container to take available space */
+}
+
+/* Main Header */
+.main-header {
+    background-color: #E8C44B; /* Yellow/Gold header background */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .logo {
+    display: flex;
+    align-items: center;
+    color: #333; /* Darker text for logo */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.main-header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-right: 30px;
+}
+
+.main-nav ul li:last-child {
+    margin-right: 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a i {
+    margin-right: 8px;
+    color: #555; /* Slightly darker icon color */
+}
+
+.main-nav ul li a:hover {
+    color: #FFB347; /* Orange on hover */
+}
+
+.user-profile i {
+    font-size: 28px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Search Bar */
+.search-bar-container {
+    background-color: #FDF9EC; /* Light cream for search bar background */
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E8C44B; /* Border with main yellow */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar i {
+    font-size: 20px;
+    color: #777;
+    margin-right: 15px;
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px 0;
+    font-size: 16px;
+    background-color: transparent;
+    color: #333;
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+/* Filter Section */
+.filter-section {
+    background-color: #FDF9EC; /* Light cream for filter section */
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E8C44B; /* Border with main yellow */
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.filter-dropdown,
+.filter-checkbox,
+.filter-reset {
+    background-color: #E8C44B; /* Yellow/Gold for filter buttons */
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-dropdown i,
+.filter-reset i {
+    color: #555; /* Icon color within filter buttons */
+}
+
+.filter-dropdown:hover,
+.filter-checkbox:hover,
+.filter-reset:hover {
+    background-color: #FDCF6E; /* Slightly lighter yellow on hover */
+}
+
+.filter-checkbox input[type="checkbox"] {
+    margin-right: 5px;
+    accent-color: #FFB347; /* Orange accent for checkbox */
+}
+
+/* Recipe Grid */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.recipe-card {
+    background-color: #FDF9EC; /* Light cream for recipe cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E8C44B; /* Border for cards */
+}
+
+.recipe-image-placeholder {
+    height: 180px; /* Placeholder for recipe image */
+    background-color: #eee; /* Light gray background for image area */
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* Align category to bottom */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.recipe-category {
+    background-color: #E8C44B; /* Yellow/Gold for category badge */
+    color: #333;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.recipe-content {
+    padding: 20px;
+    flex-grow: 1; /* Allows content to take available space within card */
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.recipe-description {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allows description to push actions to bottom */
+}
+
+.recipe-meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Allow meta items to wrap */
+    gap: 10px 15px; /* Row and column gap */
+}
+
+.recipe-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.recipe-meta i {
+    margin-right: 5px;
+    color: #888;
+}
+
+.recipe-tags {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.recipe-tags .tag {
+    background-color: #E8C44B; /* Yellow/Gold for tags */
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.recipe-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align actions to the right */
+    padding-top: 15px;
+    border-top: 1px solid #eee; /* Subtle separator */
+}
+
+.heart-icon {
+    font-size: 22px;
+    color: #FFB347; /* Orange for heart icon */
+    cursor: pointer;
+    margin-right: auto; /* Pushes other buttons to the right */
+    transition: color 0.2s ease;
+}
+
+.heart-icon.fas { /* For when it's solid (favorited) */
+    color: #FFB347;
+}
+
+.heart-icon:hover {
+    color: #FF9933; /* Darker orange on hover */
+}
+
+.btn-edit,
+.btn-delete {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 10px; /* Space between buttons */
+}
+
+.btn-edit {
+    background-color: #E8C44B; /* Yellow/Gold for edit button */
+    color: #333;
+}
+
+.btn-edit:hover {
+    background-color: #FDCF6E; /* Slightly lighter yellow on hover */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Standard red for delete */
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .main-header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+        justify-content: center; /* Center items when wrapping */
+    }
+
+    .main-header .logo {
+        margin-bottom: 10px;
+    }
+
+    .main-nav {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .main-nav ul li {
+        margin: 5px 15px; /* Adjust spacing for wrapped nav items */
+    }
+
+    .user-profile {
+        margin-top: 10px;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        padding: 0 10px;
+    }
+
+    .recipe-card {
+        margin-bottom: 20px;
+    }
+
+    .recipe-image-placeholder {
+        height: 150px;
+    }
+
+    .recipe-content {
+        padding: 15px;
+    }
+
+    .search-bar-container,
+    .filter-section {
+        margin: 0 10px 20px 10px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px 15px;
+    }
+
+    .main-header .logo {
+        font-size: 20px;
+    }
+
+    .main-header .logo img {
+        height: 35px;
+    }
+
+    .main-nav ul li {
+        margin: 5px 10px;
+        font-size: 14px;
+    }
+
+    .main-nav ul li a i {
+        margin-right: 5px;
+    }
+
+    .page-title {
+        font-size: 24px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .search-bar input {
+        font-size: 15px;
+    }
+
+    .filter-dropdown,
+    .filter-checkbox,
+    .filter-reset {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .recipe-title {
+        font-size: 20px;
+    }
+
+    .recipe-description {
+        font-size: 14px;
+    }
+
+    .recipe-meta {
+        font-size: 13px;
+    }
+
+    .tag {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}

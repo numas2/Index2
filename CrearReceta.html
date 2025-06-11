@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nueva Receta - RecetApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="EstiloCrearReceta.css">
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+</head>
+<body>
+    <div class="form-container">
+        <h1>Crear Nueva Receta</h1>
+        <form id="crearRecetaForm">
+            <div class="form-group">
+                <label for="tituloReceta">Título de la Receta:</label>
+                <input type="text" id="tituloReceta" name="tituloReceta" required>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcionReceta">Descripción:</label>
+                <textarea id="descripcionReceta" name="descripcionReceta" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="urlImagenReceta">URL de la imagen (opcional):</label>
+                <input type="url" id="urlImagenReceta" name="urlImagenReceta" placeholder="https://ejemplo.com/imagen.jpg">
+            </div>
+
+            <div class="form-group">
+                <label for="tiempoPreparacion">Tiempo de preparación:</label>
+                <input type="text" id="tiempoPreparacion" name="tiempoPreparacion" placeholder="Ej: 20 minutos">
+            </div>
+
+            <div class="form-group">
+                <label for="tiempoCoccion">Tiempo de cocción:</label>
+                <input type="text" id="tiempoCoccion" name="tiempoCoccion" placeholder="Ej: 30 minutos">
+            </div>
+
+            <div class="form-group">
+                <label for="porcionesReceta">Porciones:</label>
+                <input type="number" id="porcionesReceta" name="porcionesReceta" placeholder="Ej: 4" min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="categoriaReceta">Categoría:</label>
+                <input type="text" id="categoriaReceta" name="categoriaReceta" placeholder="Ej: Plato principal, Postre, Desayuno" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ingredientesReceta">Ingredientes (uno por línea):</label>
+                <textarea id="ingredientesReceta" name="ingredientesReceta" rows="6" required placeholder="Ej:
+2 tazas de harina
+1 cucharadita de sal
+1 taza de agua"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Instrucciones (cada paso en una línea):</label>
+                <div id="instruccionesContainer">
+                    <div class="instruccion-item">
+                        <input type="text" name="instrucciones[]" placeholder="Paso 1" required>
+                        <!-- El botón de eliminar para el primer paso está oculto por defecto por JS -->
+                        <button type="button" class="remove-step-btn" style="display:none;">Eliminar</button>
+                    </div>
+                </div>
+                <button type="button" id="addInstruccionBtn">Agregar Paso</button>
+            </div>
+
+            <div class="form-group form-actions">
+                <button type="submit">Crear Receta</button>
+            </div>
+            <div id="formMessage" class="form-message"></div> 
+            <a href="Noc2.html">Regresar</a>
+        </form>
+    </div>
+   
+    <script src="ScriptCrearReceta.js"></script>
+</body>
+</html>

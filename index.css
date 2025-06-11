@@ -1,0 +1,129 @@
+header {
+text-align: right;
+}
+/*Fondo*/
+body {
+   background-color: #f5f5dc;
+   text-align: center;
+}
+
+
+/*boton de inicio de secion*/
+.Inicio1 {
+    padding: 15px 30px;
+    border: 2px solid #2c2c2c;
+    background-color: #000000;
+    color: #ffb347;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+  }
+  
+  .Inicio1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .Inicio1:hover::after {
+    transform: scale(4);
+  }
+  
+  .Inicio1:hover {
+    border-color: #666666;
+    background: #292929;
+  }
+/*boton de registro*/
+.registro {
+    padding: 15px 30px;
+    border: 2px solid #2c2c2c;
+    background-color: #e8c44b;
+    color: #000;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+  }
+  
+  .registro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .registro:hover::after {
+    transform: scale(4);
+  }
+  
+  .registro:hover {
+    border-color: #666666;
+    background: #292929; 
+}
+
+/*pocision botones 1*/
+.contenedor {
+
+    max-width: 20%;
+}
+
+/*pocision botones 2*/
+.contenedor2 {
+    text-align: center;
+}
+
+/*pocision img 1*/
+.CEntro {
+text-align: center;
+}
+
+/*Titulo vicolor*/
+p {
+    color: #000;
+    font-size: 10px;
+    transform: scale(4);
+    transform-origin: left;
+}
+.titu2color {
+color: #ffb347;
+font-weight: bold;
+}
+
+.zi {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 100%;
+}    
+
+  /*button {
+background-color: #000;
+color: #ffb347;

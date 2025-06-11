@@ -1,0 +1,200 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5dc; /* color del fondo */
+    display: flex;
+    flex-direction: column; /* pal logo(lo perdi) */
+    align-items: center;
+    justify-content: flex-start; /* para alinear  */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; 
+    box-sizing: border-box; }
+
+/* Header estilo */
+.header {
+    width: 100%;
+    max-width: 450px; /* Match the form card width */
+    margin-bottom: 20px;
+}
+
+/*no hubo logo*/
+.logo {
+    display: flex;
+    align-items: center;
+    color: #4CAF50; 
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/*titulo*/
+p {
+    color: #000;
+    font-size: 10px;
+    transform: scale(4);
+    transform-origin: right;
+}
+.titu2color {
+color: #ffb347;
+font-weight: bold;
+}
+
+/* Container for centering the form card */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* No min-height here, as body handles overall height */
+}
+
+/* estlilo formulario  */
+.form-card {
+    background-color: #f5f5dc; /* fondo */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* tamaño del form */
+    padding: 30px;
+    box-sizing: border-box;
+    border: 2px solid #e8c44b; /* color del borde */
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    color: #333; /* texto NEGRO */
+}
+
+.form-header h1 {
+    font-size: 28px;
+    margin: 0;
+    margin-left: 10px; /* espacio entre el icono y el texto */
+    font-weight: 700;
+}
+
+.icon-create-account {
+    font-size: 30px;
+    color: #ffb347; /* color del icono */
+}
+
+/* Form Group (Label + Input) */
+.form-group {
+    margin-bottom: 18px; /* Space between form fields */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #555;
+    font-size: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't increase total width */
+    background-color: #fff; /* White background for inputs */
+    color: #333;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #FDCF6E; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(253, 207, 110, 0.5);
+}
+
+/* Boton registro */
+.btn-register {
+    width: 100%;
+    padding: 15px;
+    background-color: #FFC107; /* A bright yellow/orange for the button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Space above the button */
+}
+
+.btn-register:hover {
+    background-color: #FFA000; /* Slightly darker orange on hover */
+}
+
+/*boton inicio*/
+.btn-inicio {
+width: 100%;
+    padding: 15px;
+    background-color: #FFC107; /* A bright yellow/orange for the button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Space above the button */
+}
+
+.btn-inicio:hover {
+    background-color: #FFA000; /* Slightly darker orange on hover */
+}
+
+
+/* Login Link */
+.login-link {
+    text-align: center;
+    margin-top: 25px; /* Space above the login link */
+}
+
+.login-link p {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+}
+
+.login-link a {
+    color: #FFC107; /* color pa resaltar el link */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .form-card {
+        padding: 20px;
+        margin: 10px; /* Margen */
+    }
+
+    .form-header h1 {
+        font-size: 24px;
+    }
+
+    .icon-create-account {
+        font-size: 26px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+}
