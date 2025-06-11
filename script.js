@@ -1,4 +1,3 @@
-// --- Datos de Recetas de Ejemplo (Simulando una base de datos/API) ---
 const allRecipes = [
     {
         id: 1,
@@ -132,15 +131,16 @@ function renderRecipes(recipesToRender) {
     attachRecipeCardEventListeners();
 }
 
+let selectedCategory = null; // Variable global para la categoría seleccionada
 /**
  * Aplica los filtros de búsqueda y favoritos a las recetas.
  */
 function applyFilters() {
     let filtered = [...allRecipes];
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
-    // 1. Filtrar por búsqueda (título, descripción, tags)
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    if (searchTerm) {
+    // 1. Filtrar por búsqueda (título, descripción, tags)    
+    if (searchTerm) { // searchTerm ahora se refiere a la declaración de la línea 118 creo
         filtered = filtered.filter(recipe =>
             recipe.title.toLowerCase().includes(searchTerm) ||
             recipe.description.toLowerCase().includes(searchTerm) ||
@@ -149,12 +149,14 @@ function applyFilters() {
     }
 
     // 2. Filtrar por favoritos
-    if (showFavoritesCheckbox.checked) {
+    if (showFavoritesCheckbox && showFavoritesCheckbox.checked) {
         filtered = filtered.filter(recipe => recipe.isFavorite);
     }
 
-    // 3. (Futuro) Filtrar por categoría (cuando implementemos el dropdown real)
-    // Actualmente, el botón de categoría solo muestra un alert.
+    // 3. Filtrar por categoría seleccionada
+    if (selectedCategory) {
+        filtered = filtered.filter(recipe => recipe.category === selectedCategory);
+    }
 
     displayedRecipes = filtered;
     renderRecipes(displayedRecipes);
@@ -164,6 +166,7 @@ function applyFilters() {
  * Adjunta listeners a los botones de acción de las tarjetas (Editar, Borrar, Favorito).
  */
 function attachRecipeCardEventListeners() {
+    if (!recipeGrid) return; // Si no hay grid, no hay botones que adjuntar
     document.querySelectorAll('.btn-edit').forEach(button => {
         button.onclick = (event) => {
             const recipeId = event.currentTarget.dataset.id;
@@ -207,37 +210,103 @@ function attachRecipeCardEventListeners() {
     });
 }
 
+/**
+ * Obtiene las categorías únicas de todas las recetas.
+ * @returns {Array<string>} Un array de nombres de categorías únicas.
+ */
+function getUniqueCategories() {
+    const categories = allRecipes.map(recipe => recipe.category);
+    return [...new Set(categories)]; // Elimina duplicados
+}
+
+/**
+ * Puebla el menú desplegable de categorías.
+ */
+function populateCategoryDropdown() {
+    if (!categoryDropdownMenu) return;
+
+    const categories = getUniqueCategories();
+    categoryDropdownMenu.innerHTML = ''; // Limpiar opciones existentes
+
+    // Opción para "Todas las categorías"
+    const allCategoriesLi = document.createElement('li');
+    allCategoriesLi.textContent = 'Todas las categorías';
+    allCategoriesLi.dataset.category = ''; // Valor vacío para "todas"
+    allCategoriesLi.addEventListener('click', () => {
+        selectedCategory = null;
+        categoryFilterBtnText.textContent = 'Todas las categorías';
+        categoryDropdownMenu.style.display = 'none';
+        applyFilters();
+    });
+    categoryDropdownMenu.appendChild(allCategoriesLi);
+
+    // Opciones para cada categoría
+    categories.forEach(category => {
+        const li = document.createElement('li');
+        li.textContent = category;
+        li.dataset.category = category;
+        li.addEventListener('click', () => {
+            selectedCategory = category;
+            categoryFilterBtnText.textContent = category;
+            categoryDropdownMenu.style.display = 'none';
+            applyFilters();
+        });
+        categoryDropdownMenu.appendChild(li);
+    });
+}
 
 // --- Event Listeners Globales ---
 
 // Búsqueda en tiempo real
-searchInput.addEventListener('input', applyFilters);
+if (searchInput) searchInput.addEventListener('input', applyFilters);
+
 
 // Checkbox de mostrar solo favoritos
-showFavoritesCheckbox.addEventListener('change', applyFilters);
+if (showFavoritesCheckbox) showFavoritesCheckbox.addEventListener('change', applyFilters);
+
 
 // Botón de restablecer filtros
-resetFiltersBtn.addEventListener('click', () => {
-    searchInput.value = ''; // Limpia el campo de búsqueda
-    showFavoritesCheckbox.checked = false; // Desmarca el checkbox
-    applyFilters(); // Vuelve a aplicar los filtros
-    alert('Filtros restablecidos.');
-});
+if (resetFiltersBtn) {
+    resetFiltersBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (showFavoritesCheckbox) showFavoritesCheckbox.checked = false;
+        selectedCategory = null; // Restablece la categoría seleccionada
+        if (categoryFilterBtnText) categoryFilterBtnText.textContent = 'Todas las categorías'; // Restablece el texto del botón
+        applyFilters();
+        alert('Filtros restablecidos.');
+    });
+}
 
-// Botón de "Todas las categorías" (simulación de funcionalidad)
-categoryFilterBtn.addEventListener('click', () => {
-    alert('Funcionalidad de filtro por categorías (requiere un menú desplegable real).');
-    // Aquí podrías cargar categorías dinámicamente y mostrar un modal/dropdown
-    // para que el usuario seleccione una categoría.
-});
+// Botón para mostrar/ocultar el desplegable de categorías
+if (categoryFilterBtn) {
+    categoryFilterBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Evita que el click se propague al document
+        if (categoryDropdownMenu) {
+            categoryDropdownMenu.style.display = categoryDropdownMenu.style.display === 'none' ? 'block' : 'none';
+        }
+    });
+}
 
 // Navegación (simulación)
-navRecetas.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la sección de Recetas (página actual).'); });
-navFavoritos.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la sección de Favoritos.'); });
-navNuevaReceta.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la página para Crear Nueva Receta.'); });
-navSustituciones.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la sección de Sustituciones.'); });
+if (navRecetas) navRecetas.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la sección de Recetas (página actual).'); });
+if (navFavoritos) navFavoritos.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la sección de Favoritos.'); });
+if (navNuevaReceta) navNuevaReceta.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la página para Crear Nueva Receta.'); });
+if (navSustituciones) navSustituciones.addEventListener('click', (e) => { e.preventDefault(); alert('Navegar a la sección de Sustituciones.'); });
 
 
+// --- Inicialización ---
+document.addEventListener('DOMContentLoaded', () => {
+    populateCategoryDropdown(); // Llena el desplegable de categorías
+    renderRecipes(allRecipes); // Carga todas las recetas al inicio
+
+    //Cerrar el desplegable si se hace clic fuera de él
+    document.addEventListener('click', (event) => {
+        if (categoryDropdownMenu && categoryFilterBtn &&
+            !categoryFilterBtn.contains(event.target) && !categoryDropdownMenu.contains(event.target)) {
+            categoryDropdownMenu.style.display = 'none';
+        }
+    });
+});
 // --- Inicialización ---
 document.addEventListener('DOMContentLoaded', () => {
     renderRecipes(allRecipes); // Carga todas las recetas al inicio
